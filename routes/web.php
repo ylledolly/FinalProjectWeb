@@ -17,3 +17,6 @@ Route::get('/access-denied', function () {
     return view('access-denied');  // Display an access denied page
 })->name('access.denied');
 
+Route::get('/', function () {
+    return view('LandingPage');
+});
