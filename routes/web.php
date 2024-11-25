@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\CheckAge;
 
 Route::get('/', [HomeController::class, 'index'])->middleware(CheckAge::class)->name('home'); // Home page route
@@ -17,6 +18,7 @@ Route::get('/access-denied', function () {
     return view('access-denied');  // Display an access denied page
 })->name('access.denied');
 
-Route::get('/', function () {
-    return view('LandingPage');
-});
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+
+
+

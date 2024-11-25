@@ -164,781 +164,64 @@
         ></button>
       </div>
     </div>
-    <!-- End: Hero Carousel -->
-    <section style="padding-top: 38px">
-      <div class="container">
-        <div class="row" style="padding-bottom: 18px">
-          <div class="col"><h3>Featured books</h3></div>
-          <div class="col d-xl-flex justify-content-xl-end">
-            <button
-              class="btn btn-primary"
-              type="button"
-              style="
-                background: #cc5500;
-                border-style: solid;
-                border-color: #cc5500;
-              "
-            >
-              view all
-            </button>
-          </div>
-        </div>
-        <div class="carousel slide" data-bs-ride="false" id="carousel-2">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
+   <!-- End: Hero Carousel -->
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <section style="padding-top: 38px">
+  <div class="container">
+    <div class="row" style="padding-bottom: 18px">
+      <div class="col">
+        <h3>Featured books</h3>
+      </div>
+      <div class="col d-xl-flex justify-content-xl-end">
+        <button
+          class="btn btn-primary"
+          type="button"
+          style="background: #cc5500; border-style: solid; border-color: #cc5500;"
+        >
+          view all
+        </button>
+      </div>
+    </div><div class="carousel slide" data-bs-ride="carousel" id="carousel-2">
+      <div class="carousel-inner">
+        @foreach (array_chunk($featuredBooks, 6) as $index => $books)
+          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+            <div class="row">
+              @foreach ($books as $book)
                 <div class="col">
                   <div class="card">
                     <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover.jpg"
-                        />
+                      <div class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center">
+                        <img class="d-xxl-flex align-items-xxl-start" src="{{ $book['image'] }}" alt="{{ $book['title'] }}" />
                       </div>
-                      <h4 class="card-title">Pilgrimage</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
+                      <h4 class="card-title">{{ $book['title'] }}</h4>
+                      <div class="rating" data-book-id="{{ $book['id'] }}">
+                            @for ($i = 1; $i <= 6; $i++)
+                            <i class="fas fa-star" style="color: rgb(174, 174, 174)"></i>
+                            @endfor      
+                        </div>
+                     </div>
+                    <p class="card-text">{{ $book['description'] }}</p>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover2.png"
-                        />
-                      </div>
-                      <h4 class="card-title">Maktub</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover3.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Brida</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Brida</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Brida</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover6.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">The valkries</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover2.png"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover3.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover6.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover2.png"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover3.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover4.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <div
-                        class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center"
-                      >
-                        <img
-                          class="d-xxl-flex align-items-xxl-start"
-                          src="assets/img/cover6.jpg"
-                        />
-                      </div>
-                      <h4 class="card-title">Title</h4>
-                      <div>
-                        <i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: var(--bs-yellow)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i
-                        ><i
-                          class="fas fa-star"
-                          style="color: rgb(174, 174, 174)"
-                        ></i>
-                      </div>
-                      <p class="card-text">
-                        Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras j
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
-          <div>
-            <!-- Start: Previous --><a
-              class="carousel-control-prev"
+        @endforeach
+      </div>
+
+  
+  <!-- Start: Previous --><a
+   class="carousel-control-prev"
               href="#carousel-2"
               role="button"
               data-bs-slide="prev"
@@ -1009,7 +292,39 @@
           </div>
         </div>
       </div>
-    </section>
+   </section>
+   
+               
+               
+               
+               
+                       
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <section style="padding-top: 52px">
       <div class="container">
         <!-- Start: main -->
@@ -1979,5 +1294,9 @@
     </footer>
     <!-- End: Footer Multi Column -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/star-rating.js"></script>
+
   </body>
 </html>
+
+
