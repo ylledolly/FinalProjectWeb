@@ -20,5 +20,15 @@ Route::get('/access-denied', function () {
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 
+Route::get('/', function () {
+    return view('landingPage');
+});
 
+Route::get('/BookView', function () {
+    return view('BookView');
+});
+
+Route::get('/booklist', function () {
+    return view('booklist');
+});
 
