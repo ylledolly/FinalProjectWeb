@@ -828,6 +828,16 @@
                             <div
                                 class="col-7 col-sm-8 col-md-9 col-lg-9 col-xl-10 col-xxl-10"
                             >
+
+
+
+
+
+
+
+
+
+<!--
                                 <h3 style="font-weight: bold">Popular Books</h3>
                                 <hr />
                             </div>
@@ -1357,6 +1367,67 @@
                                 </div>
                             </div>
                         </div>
+                        -->
+
+
+                        <h3 style="font-weight: bold; margin-bottom: 20px;">Popular Books</h3>
+<hr />
+</div>
+<div class="col text-end">
+    <a
+        class="btn"
+        role="button"
+        href="{{ url('/booklist') }}"
+        style="
+            color: #ffffff;
+            border-radius: 30px;
+            border-style: none;
+            background: #334b35;
+            height: 40px;
+            padding: 0 20px;
+            font-weight: bold;
+        "
+    >
+        View all
+    </a>
+</div>
+</div>
+
+<div class="row d-flex justify-content-start flex-wrap">
+    @foreach($popularBooks as $book)
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card border-0" style="width: 100%; overflow: hidden;">
+                <div class="card-body d-flex flex-column">
+                    <!-- Image Section -->
+                    <div class="d-flex justify-content-center mb-3">
+                        <picture>
+                            <img class="img-fluid" src="{{ $book->image_url }}" style="border-radius: 20px; width: 100%; height: auto;" />
+                        </picture>
+                    </div>
+
+                    <!-- Title and Rating -->
+                    <a href="{{ url('/BookView') }}" style="text-decoration: none;">
+                        <h4 class="card-title" style="color: rgb(55, 58, 60); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            {{ $book->title }}
+                        </h4>
+                    </a>
+                    <div class="d-flex">
+                        @for ($i = 0; $i < 5; $i++)
+                            <i class="fas fa-star" style="color: {{ $i < $book->rating ? 'var(--bs-yellow)' : 'rgb(174, 174, 174)' }};"></i>
+                        @endfor
+                    </div>
+                    <p class="card-text" style="font-size: 0.9rem; color: rgb(104, 104, 104);">{{ $book->author }}</p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+                
+                       
+                       
+                       
+                       
+                       
                         <div
                             class="row"
                             style="margin-bottom: 0px; margin-top: 22px"
