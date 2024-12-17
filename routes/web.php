@@ -1,18 +1,41 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FeedController;
-use App\Http\Middleware\AgeVerify;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Middleware\CheckAge;
+use Apps\Models\UserModel;
 
-Route::get('/', [HomeController::class, 'index'])->middleware(AgeVerify::class)->name('homepage'); 
+// Display the login form (GET request)
+Route::get('/', [UserController::class, 'showLoginForm'])->name('login');
 
-Route::prefix('/lib')->group(function () {
-    Route::get('/', [FeedController::class, 'index'])->name('lib.index'); 
-    Route::get('/user/{userId}', [FeedController::class, 'show'])->name('lib.user'); 
+// Handle the login form submission (POST request)
+Route::post('/login', [UserController::class, 'logrequest'])->name('login.submit'); // Make sure it's 'login.submit' here
+
+// Handle signup
+Route::post('/signup', [UserController::class, 'register'])->name('signup.submit');
+
+// Landing page (after successful login)
+Route::get('/landing', [LandingPageController::class, 'index'])->name('landing');
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index'); // Dashboard main page
+    Route::get('/user/{userId}', [DashboardController::class, 'show'])->name('dashboard.user'); // User-specific dashboard page
 });
 
 // Access Denied route
 Route::get('/access-denied', function () {
-    return view('accessDenied');  
+    return view('access-denied');  // Display an access denied page
 })->name('access.denied');
+
+
+Route::get('/BookView', function () {
+    return view('BookView');
+});
+
+Route::get('/booklist', function () {
+    return view('booklist');
+});
+
